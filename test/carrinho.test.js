@@ -27,6 +27,6 @@ test('cupom inexistente não derruba o cálculo e devolve o subtotal', () => {
   assert.equal(calcularTotal(itens, 'PROMO50'), 169.7);
 });
 
-test('cupom fora da validade não aplica desconto', () => {
+test('cupom vencido (VOLTASAS10, 28/02/2026) não aplica desconto', () => {
   assert.equal(calcularTotal(itens, 'VOLTASAS10'), 169.7);
 });
