@@ -5,7 +5,9 @@ const CUPONS = [
 ];
 
 export function buscarCupom(codigo) {
-  return CUPONS.find((cupom) => cupom.codigo === codigo);
+  const normalizado = String(codigo ?? '').trim().toUpperCase();
+
+  return CUPONS.find((cupom) => cupom.codigo === normalizado);
 }
 
 function estaValido(cupom, hoje) {
