@@ -22,3 +22,11 @@ test('sem cupom, o total é igual ao subtotal', () => {
 test('aplica o percentual de desconto de um cupom válido', () => {
   assert.equal(calcularTotal(itens, 'BEMVINDO10'), 152.73);
 });
+
+test('cupom inexistente não derruba o cálculo e devolve o subtotal', () => {
+  assert.equal(calcularTotal(itens, 'PROMO50'), 169.7);
+});
+
+test('cupom fora da validade não aplica desconto', () => {
+  assert.equal(calcularTotal(itens, 'VOLTASAS10'), 169.7);
+});
