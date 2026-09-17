@@ -1,0 +1,11 @@
+{
+  "name": "loja-agil-carrinho",
+  "version": "1.0.0",
+  "description": "Módulo de carrinho usado como exemplo de Pull Request e Code Review",
+  "type": "module",
+  "main": "src/carrinho.js",
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "license": "MIT"
+}
