@@ -8,8 +8,16 @@ export function buscarCupom(codigo) {
   return CUPONS.find((cupom) => cupom.codigo === codigo);
 }
 
-export function aplicarDesconto(subtotal, codigo) {
+function estaValido(cupom, hoje) {
+  return new Date(cupom.validoAte) >= hoje;
+}
+
+export function aplicarDesconto(subtotal, codigo, hoje = new Date()) {
   const cupom = buscarCupom(codigo);
+
+  if (!cupom || !estaValido(cupom, hoje)) {
+    return subtotal;
+  }
 
   return subtotal - subtotal * (cupom.percentual / 100);
 }

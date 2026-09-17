@@ -22,3 +22,16 @@ test('sem cupom, o total é igual ao subtotal', () => {
 test('aplica o percentual de desconto de um cupom válido', () => {
   assert.equal(calcularTotal(itens, 'BEMVINDO10'), 152.73);
 });
+
+test('cupom inexistente não derruba o cálculo e devolve o subtotal', () => {
+  assert.equal(calcularTotal(itens, 'PROMO50'), 169.7);
+});
+
+test('cupom vencido (VOLTASAS10, 28/02/2026) não aplica desconto', () => {
+  assert.equal(calcularTotal(itens, 'VOLTASAS10'), 169.7);
+});
+
+test('a validade é avaliada na data informada, não no relógio da máquina', () => {
+  const antesDeVencer = new Date('2026-01-10');
+  assert.equal(calcularTotal(itens, 'VOLTASAS10', antesDeVencer), 152.73);
+});
