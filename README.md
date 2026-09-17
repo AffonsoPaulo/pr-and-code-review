@@ -4,7 +4,7 @@ Projeto de exemplo usado no material **"Pull Requests e Code Review no GitHub"**
 
 É um módulo pequeno, em JavaScript puro, que calcula o total de um carrinho de
 compras aplicando cupons de desconto. O objetivo não é a regra de negócio em si:
-o código existe para que haja um diff real para revisar.
+o código existe para que haja um *diff* real para revisar.
 
 ## Como rodar
 
