@@ -1,0 +1,24 @@
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
+import { calcularSubtotal, calcularTotal } from '../src/carrinho.js';
+
+const itens = [
+  { nome: 'Caneca', preco: 39.9, quantidade: 2 },
+  { nome: 'Camiseta', preco: 89.9, quantidade: 1 },
+];
+
+test('soma preço x quantidade de todos os itens', () => {
+  assert.equal(calcularSubtotal(itens), 169.7);
+});
+
+test('carrinho vazio tem subtotal zero', () => {
+  assert.equal(calcularSubtotal([]), 0);
+});
+
+test('sem cupom, o total é igual ao subtotal', () => {
+  assert.equal(calcularTotal(itens), 169.7);
+});
+
+test('aplica o percentual de desconto de um cupom válido', () => {
+  assert.equal(calcularTotal(itens, 'BEMVINDO10'), 152.73);
+});
