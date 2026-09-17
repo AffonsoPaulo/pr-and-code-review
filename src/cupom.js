@@ -8,14 +8,14 @@ export function buscarCupom(codigo) {
   return CUPONS.find((cupom) => cupom.codigo === codigo);
 }
 
-function estaValido(cupom) {
-  return new Date(cupom.validoAte) >= new Date();
+function estaValido(cupom, hoje) {
+  return new Date(cupom.validoAte) >= hoje;
 }
 
-export function aplicarDesconto(subtotal, codigo) {
+export function aplicarDesconto(subtotal, codigo, hoje = new Date()) {
   const cupom = buscarCupom(codigo);
 
-  if (!cupom || !estaValido(cupom)) {
+  if (!cupom || !estaValido(cupom, hoje)) {
     return subtotal;
   }
 

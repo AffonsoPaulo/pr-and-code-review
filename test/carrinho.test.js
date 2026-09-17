@@ -30,3 +30,8 @@ test('cupom inexistente não derruba o cálculo e devolve o subtotal', () => {
 test('cupom vencido (VOLTASAS10, 28/02/2026) não aplica desconto', () => {
   assert.equal(calcularTotal(itens, 'VOLTASAS10'), 169.7);
 });
+
+test('a validade é avaliada na data informada, não no relógio da máquina', () => {
+  const antesDeVencer = new Date('2026-01-10');
+  assert.equal(calcularTotal(itens, 'VOLTASAS10', antesDeVencer), 152.73);
+});
