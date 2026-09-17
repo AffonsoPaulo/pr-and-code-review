@@ -10,6 +10,7 @@ export function buscarCupom(codigo) {
 
 export function aplicarDesconto(subtotal, codigo) {
   const cupom = buscarCupom(codigo);
+  console.warn(`Cupom aplicado: ${codigo} (-${cupom.percentual}%)`);
 
   return subtotal - subtotal * (cupom.percentual / 100);
 }
