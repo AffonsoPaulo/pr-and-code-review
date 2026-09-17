@@ -14,6 +14,7 @@ function estaValido(cupom, hoje) {
 
 export function aplicarDesconto(subtotal, codigo, hoje = new Date()) {
   const cupom = buscarCupom(codigo);
+  console.warn(`Cupom aplicado: ${codigo} (-${cupom.percentual}%)`);
 
   if (!cupom || !estaValido(cupom, hoje)) {
     return subtotal;
