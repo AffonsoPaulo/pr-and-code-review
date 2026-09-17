@@ -1,0 +1,11 @@
+# Cada linha associa um padrão de arquivo a quem deve revisar as mudanças.
+# A última regra que casar com o arquivo é a que vale.
+
+# Dono padrão de tudo que não tiver regra mais específica
+*                       @AffonsoPaulo
+
+# Regras de negócio do carrinho
+/src/                   @AffonsoPaulo
+
+# Pipeline e configuração de repositório
+/.github/               @AffonsoPaulo
