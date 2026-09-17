@@ -6,7 +6,8 @@ export function calcularSubtotal(itens) {
 
 export function calcularTotal(itens, codigoCupom, hoje = new Date()) {
   const subtotal = calcularSubtotal(itens);
-
+  console.log("Testando pull request");
+  
   if (!codigoCupom) {
     return subtotal;
   }
